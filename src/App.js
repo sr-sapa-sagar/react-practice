@@ -1,30 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
-import About from './About';
-import Contact from './contact';
-import Services from './components/services';
-import Page from './components/page';
+import ChildComponent from './components/childcomponent';
 
-import aboutImg from './assets/imegas/dev.jpg'
-import contactImg from './assets/imegas/ser.webp'
-import servicesImg from './assets/imegas/web.jpg'
+import Defaultform from './components/Defaultform';
 
 function App() {
-  return (
-<div className="App">
-  <div className='container'>
-  {/*<About />
-<Contact />
-  <Services />*/}
-<Page titel="About us" content="About us page contant" img={aboutImg}/>
-<Page titel="Contact us" content="Contact us page contant" img={contactImg}/>
-<Page titel="Services" content="Services page contant" img={servicesImg}/>
+    let [registerd, setRegister] = useState(true)
+    function handleRegister(){
+     if(registerd==true){
+        setRegister(false)
+     }else{
+        setRegister(true)
+     }
+    }
 
-  </div>
-</div>
-  );
-  }
+    return(
+        <div className="App">
+           {/*<ChildComponent title={"Login form"} parap={"hello world"}/> */}
+         <div className='container'>
+            <div className='w-25'>
+                <Defaultform  registerd={registerd}/>
+            </div>
+            <button onClick={handleRegister} className='btn btn-dark'>Login</button>
+            <button onClick={handleRegister} className='btn btn-dark' >Register</button>
+         </div>
+        </div>
+    );
+}
 
 
-  export default App;
+
+export default App;

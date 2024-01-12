@@ -15,6 +15,7 @@ export default function page(props) {
         <img src={props.img} />
         </div>
         <div></div>
+        <div></div>
     </div>
   )
 }
